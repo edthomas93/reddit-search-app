@@ -5,8 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Search Reddit</title>
+  <link href="public/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+  <div id="search-container">
+    <div id="search">
+      <h2>Search Reddit</h2>
+      <form id="search-form">
+        <div>
+          <input type="text" id="search-input" placeholder="Search Term...">
+        </div>
+        <br>
+        <div>
+          Sort By:
+          <br>
+          <input type="radio" name="sortby" value="relevance" checked>
+          <label>
+            Relevance
+          </label>
+        </div>
+        <div>
+          <input type="radio" name="sortby" value="new">
+          <label>
+            Latest
+          </label>
+        </div>
+        <h3>Number of articles:</h3>
+        <div>
+          <select name="limit" id="limit">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="25">25</option>
+          </select>
+        </div>
+        <br>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div id="results"></div>
+  </div>
   <script src="./index.js"></script>
 </body>
 </html>

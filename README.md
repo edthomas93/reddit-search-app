@@ -2,7 +2,7 @@
 
 Using parcel bundler pack manager
 
-#How to use
+# How to use
 
 1. Install parcel bundler: `npm install -g parcel-bundler`
 
