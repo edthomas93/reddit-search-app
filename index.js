@@ -1,3 +1,5 @@
+import reddit from './redditapi'
+
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 
@@ -9,6 +11,9 @@ searchForm.addEventListener('submit', event => {
   if(searchTerm === ''){
     showMessage('Please add search term', 'alert');
   }
+
+  searchInput.value = ''; //clear the input
+  reddit.search(searchTerm, searchLimit, sortBy);
 
   event.preventDefault(); //prevents form from submitting to a file
 })
