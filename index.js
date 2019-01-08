@@ -15,9 +15,12 @@ searchForm.addEventListener('submit', event => {
 
 function showMessage(message, className){
   const div = document.createElement('div');
-  div.className = `${className}`;
-  div.appendChild(document.createTextNode(message));
   const searchContainer = document.getElementById('search-container');
   const search = document.getElementById('search');
+
+  div.className = `${className}`;
+  div.appendChild(document.createTextNode(message));
   searchContainer.insertBefore(div, search);
+  //removes alert after 3s
+  setTimeout(() => document.querySelector('.alert').remove(), 3000);
 };
