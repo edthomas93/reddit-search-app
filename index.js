@@ -19,12 +19,16 @@ searchForm.addEventListener('submit', event => {
       let output = '<div>';
       results.forEach(post => {
         const image = post.preview ? post.preview.images[0].source.url : 'https://www.redditinc.com/imager/images/904/extra-life-2017-banner_ea0f9a61260ba9d9e366e64dba3a84f4.png';
-
         output += `
         <div class="card">
           <h4>${post.title}</h4>
           <h5>${truncateText(post.selftext, 100)}</h5>
           <img src="${image}">
+          <a href="${post.url}"><button>Visit Page</button></a>
+          <hr>
+          <span>Subreddit: r/${post.subreddit}</span>
+          <br>
+          <span>Score: ${post.score}</span>
         </div>
         `;
         output += '</div>';
