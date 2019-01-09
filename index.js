@@ -15,14 +15,16 @@ searchForm.addEventListener('submit', event => {
   searchInput.value = ''; //clear the input
   reddit.search(searchTerm, searchLimit, sortBy)
     .then(results => {
+      console.log(results);
       let output = '<div>';
       results.forEach(post => {
-        console.log(results);
+        const image = post.preview ? post.preview.images[0].source.url : 'https://www.redditinc.com/imager/images/904/extra-life-2017-banner_ea0f9a61260ba9d9e366e64dba3a84f4.png';
+
         output += `
-        <div class="card columns">
+        <div class="card">
           <h4>${post.title}</h4>
-          <h5>${post.selftext}</h5>
-          <img src='https://31p86334w2bvkz0249eyr0cr-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/best-black-bean-burgers-2.jpg'
+          <h5>${truncateText(post.selftext, 100)}</h5>
+          <img src="${image}">
         </div>
         `;
         output += '</div>';
@@ -44,3 +46,9 @@ function showMessage(message, className){
   //removes alert after 3s
   setTimeout(() => document.querySelector('.alert').remove(), 3000);
 };
+
+function truncateText(text, limit) {
+  const shortened = text.indexOf(' ', limit) //limit = no. of characters
+  if(shortened == -1) return text;
+  return text.substring(0, shortened);
+}
