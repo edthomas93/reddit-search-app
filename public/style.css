@@ -10,3 +10,20 @@ html, body {
   background-color: red;
   padding: 10px;
 }
+
+.masonry {
+  column-count: 3;
+  column-gap: 0em;
+}
+
+.card {
+  background-color: white;
+  width: 90%;
+  padding: 2.5%;
+  margin: 2.5%;
+  display: inline-block;
+}
+
+img {
+  width: 100%;
+}

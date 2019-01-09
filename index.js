@@ -13,7 +13,22 @@ searchForm.addEventListener('submit', event => {
   }
 
   searchInput.value = ''; //clear the input
-  reddit.search(searchTerm, searchLimit, sortBy);
+  reddit.search(searchTerm, searchLimit, sortBy)
+    .then(results => {
+      let output = '<div>';
+      results.forEach(post => {
+        console.log(results);
+        output += `
+        <div class="card columns">
+          <h4>${post.title}</h4>
+          <h5>${post.selftext}</h5>
+          <img src='https://31p86334w2bvkz0249eyr0cr-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/best-black-bean-burgers-2.jpg'
+        </div>
+        `;
+        output += '</div>';
+      });
+      document.getElementById('results').innerHTML = output;
+    });
 
   event.preventDefault(); //prevents form from submitting to a file
 })
